@@ -1,11 +1,15 @@
 <style>
-  /* insane selector to hide empty argstables */
   .sbdocs-content div.sb-anchor:has(+ div:not(.sb-anchor)) + div:not(:has(table)) {
     display: none;
   }
 
   #storybook-docs > div > div > h1 {
     display: none;
+  }
+
+  #stories {
+    margin-top: 0;
+    font-size: 20px;
   }
 
   #storybook-docs > div > div > div:first-of-type {
