@@ -35,7 +35,7 @@ export const Counter = () => {
 
   return (
     <Fragment>
-      <div>count: {count}</div>
+      <p>count: {count}</p>
       <button onClick={handleStart}>start</button>
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
