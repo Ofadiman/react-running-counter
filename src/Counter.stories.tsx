@@ -3,6 +3,8 @@ import { Counter as UseRefStoringIntervalId } from './UseRefStoringIntervalId'
 import UseRefStoringIntervalIdSourceCode from './UseRefStoringIntervalId?raw'
 import { Counter as UseStateStoringIntervalId } from './UseStateStoringIntervalId'
 import UseStateStoringIntervalIdSourceCode from './UseStateStoringIntervalId?raw'
+import { Counter as UseEffectSchedulingAndClearingInterval } from './UseEffectSchedulingAndClearingInterval'
+import UseEffectSchedulingAndClearingIntervalSourceCode from './UseEffectSchedulingAndClearingInterval?raw'
 
 export default {
   title: 'Counters',
@@ -37,6 +39,29 @@ export const UseRefStoringIntervalIdStory: StoryObj = {
       },
       source: {
         code: UseRefStoringIntervalIdSourceCode,
+      },
+    },
+  },
+}
+
+export const UseEffectSchedulingAndClearingIntervalStory: StoryObj = {
+  name: 'useEffect scheduling and clearing interval',
+  render: () => {
+    return <UseEffectSchedulingAndClearingInterval />
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `This solution implements the logic for scheduling and clearing interval inside useEffect hook.
+
+- \`handleStart\` function starts the counter by setting \`isRunning\` state to \`true\` which triggers useEffect callback to run.
+- \`handleStop\` function stops the counter by setting \`isRunning\` state to \`false\` which triggers the function returned from useEffect callback to run which clears interval.
+- \`handleReset\` function simply resets the counter to default state.
+
+\`useEffect\` hook is responsible for creating interval and clearing interval on state change and on component unmount.`,
+      },
+      source: {
+        code: UseEffectSchedulingAndClearingIntervalSourceCode,
       },
     },
   },

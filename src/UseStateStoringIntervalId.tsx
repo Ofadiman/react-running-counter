@@ -31,7 +31,9 @@ export const Counter = () => {
     }
   }, [intervalId])
 
-  const handleReset = () => setCount(0)
+  const handleReset = () => {
+    setCount(0)
+  }
 
   return (
     <Fragment>
