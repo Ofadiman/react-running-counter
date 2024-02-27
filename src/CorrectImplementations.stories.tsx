@@ -5,6 +5,8 @@ import { Counter as UseEffectSchedulingInterval } from './UseEffectSchedulingInt
 import UseEffectSchedulingIntervalSourceCode from './UseEffectSchedulingInterval?raw'
 import { Counter as HandleStartFunctionSchedulingTimeoutRecursively } from './HandleStartFunctionSchedulingTimeoutRecursively'
 import HandleStartFunctionSchedulingTimeoutRecursivelySourceCode from './HandleStartFunctionSchedulingTimeoutRecursively?raw'
+import { Counter as UseEffectSchedulingTimeoutRecursively } from './UseEffectSchedulingTimeoutRecursively'
+import UseEffectSchedulingTimeoutRecursivelySourceCode from './UseEffectSchedulingTimeoutRecursively?raw'
 
 export default {
   title: 'Correct implementations',
@@ -50,6 +52,23 @@ export const UseEffectSchedulingIntervalStory: StoryObj = {
       },
       source: {
         code: UseEffectSchedulingIntervalSourceCode,
+      },
+    },
+  },
+}
+
+export const UseEffectSchedulingTimeoutRecursivelyStory: StoryObj = {
+  name: 'useEffect scheduling timeout recursively',
+  render: () => {
+    return <UseEffectSchedulingTimeoutRecursively />
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `In this solution, \`handleStart\` and \`handleStop\` functions toggle between start/stop state causing \`useEffect\` to run. Function passed to \`useEffect\` schedules timeout recursively if the state is set to running and returns a cleanup function which will clear the timeout after the component unmounts or changes state to not running.`,
+      },
+      source: {
+        code: UseEffectSchedulingTimeoutRecursivelySourceCode,
       },
     },
   },
