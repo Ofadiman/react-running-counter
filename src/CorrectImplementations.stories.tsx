@@ -7,6 +7,8 @@ import { Counter as HandleStartFunctionSchedulingTimeoutRecursively } from './Ha
 import HandleStartFunctionSchedulingTimeoutRecursivelySourceCode from './HandleStartFunctionSchedulingTimeoutRecursively?raw'
 import { Counter as UseEffectSchedulingTimeoutRecursively } from './UseEffectSchedulingTimeoutRecursively'
 import UseEffectSchedulingTimeoutRecursivelySourceCode from './UseEffectSchedulingTimeoutRecursively?raw'
+import { Counter as RequestAnimationFrameCheckingElapsedTime } from './RequestAnimationFrameCheckingElapsedTime'
+import RequestAnimationFrameCheckingElapsedTimeSourceCode from './RequestAnimationFrameCheckingElapsedTime?raw'
 
 export default {
   title: 'Correct implementations',
@@ -86,6 +88,23 @@ export const HandleStartFunctionSchedulingTimeoutRecursivelyStory: StoryObj = {
       },
       source: {
         code: HandleStartFunctionSchedulingTimeoutRecursivelySourceCode,
+      },
+    },
+  },
+}
+
+export const RequestAnimationFrameStory: StoryObj = {
+  name: 'requestAnimationFrame checking elapsed time',
+  render: () => {
+    return <RequestAnimationFrameCheckingElapsedTime />
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `In this solution, \`window.requestAnimationFrame\` API is used to invoke a function responsible for incrementing counter approximately every 16 ms. The \`handleStart\` function sets the timestamp when checks if 1 second elapsed start and calls \`checkTime\` using \`window.requestAnimationFrame\` API. The \`checkTime\` function then checks if 1 second elapsed, and if so, updates the timestamp and counter state, and calls itself recursively using \`window.requestAnimationFrame\` API. \`handleStop\` function cancels animation frame and resets the timestamp when checks has started. \`useEffect\` is used to cancel animation frame after component unmounts, thus stopping the checks.`,
+      },
+      source: {
+        code: RequestAnimationFrameCheckingElapsedTimeSourceCode,
       },
     },
   },
