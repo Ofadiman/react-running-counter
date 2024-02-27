@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Counter as UseRefStoringIntervalId } from './UseRefStoringIntervalId'
 import UseRefStoringIntervalIdSourceCode from './UseRefStoringIntervalId?raw'
-import { Counter as UseEffectSchedulingAndClearingInterval } from './UseEffectSchedulingAndClearingInterval'
-import UseEffectSchedulingAndClearingIntervalSourceCode from './UseEffectSchedulingAndClearingInterval?raw'
+import { Counter as UseEffectSchedulingInterval } from './UseEffectSchedulingInterval'
+import UseEffectSchedulingIntervalSourceCode from './UseEffectSchedulingInterval?raw'
 import { Counter as HandleStartFunctionSchedulingTimeoutRecursively } from './HandleStartFunctionSchedulingTimeoutRecursively'
 import HandleStartFunctionSchedulingTimeoutRecursivelySourceCode from './HandleStartFunctionSchedulingTimeoutRecursively?raw'
 
@@ -29,13 +29,7 @@ export const UseRefStoringIntervalIdStory: StoryObj = {
   parameters: {
     docs: {
       description: {
-        story: `This is the most popular solution to this problem.
-
-- \`handleStart\` function first checks whether an interval has already been started, which prevents an infinite number of intervals from being started. If the interval hasn't been started yet, it starts the interval and stores its id using ref.
-- \`handleStop\` function checks if interval is already running, and if so, stops the interval and clears the reference to its id, so that a new interval can be scheduled again with \`handleStart\` function.
-- \`handleReset\` function simply resets the counter to default state.
-
-\`useEffect\` hook is used to cleanup running interval after component unmounts to prevent memory leaks.`,
+        story: `In this solution, \`handleStart\` function checks if the interval is already scheduled and if not, it schedules a new interval. \`handleStop\` function clears the interval and sets the references to its id to \`null\` so that it is possible to schedule a new interval using \`handleStart\` later. \`useEffect\` is responsible for clearing interval after the component unmounts.`,
       },
       source: {
         code: UseRefStoringIntervalIdSourceCode,
@@ -44,24 +38,18 @@ export const UseRefStoringIntervalIdStory: StoryObj = {
   },
 }
 
-export const UseEffectSchedulingAndClearingIntervalStory: StoryObj = {
-  name: 'useEffect scheduling and clearing interval',
+export const UseEffectSchedulingIntervalStory: StoryObj = {
+  name: 'useEffect scheduling interval',
   render: () => {
-    return <UseEffectSchedulingAndClearingInterval />
+    return <UseEffectSchedulingInterval />
   },
   parameters: {
     docs: {
       description: {
-        story: `This solution implements the logic for scheduling and clearing interval inside useEffect hook.
-
-- \`handleStart\` function starts the counter by setting \`isRunning\` state to \`true\` which triggers useEffect callback to run.
-- \`handleStop\` function stops the counter by setting \`isRunning\` state to \`false\` which triggers the function returned from useEffect callback to run which clears interval.
-- \`handleReset\` function simply resets the counter to default state.
-
-\`useEffect\` hook is responsible for creating interval and clearing interval on state change and on component unmount.`,
+        story: `In this solution, \`handleStart\` and \`handleStop\` functions toggle between start/stop state causing \`useEffect\` to run. Function passed to \`useEffect\` schedules interval if the state is set to running and returns a cleanup function which will clear the interval after the component unmounts or changes state to not running.`,
       },
       source: {
-        code: UseEffectSchedulingAndClearingIntervalSourceCode,
+        code: UseEffectSchedulingIntervalSourceCode,
       },
     },
   },
@@ -75,7 +63,7 @@ export const HandleStartFunctionSchedulingTimeoutRecursivelyStory: StoryObj = {
   parameters: {
     docs: {
       description: {
-        story: ``,
+        story: `This solution relies on the fact that the function \`handleStart\` is called recursively running a timeout on each execution. The \`handleStop\` function clears the timeout and sets the references to its id to \`null\` so that it is possible to schedule a new timeout using \`handleStart\` later. \`useEffect\` is responsible for clearing timeout after the component unmounts.`,
       },
       source: {
         code: HandleStartFunctionSchedulingTimeoutRecursivelySourceCode,
