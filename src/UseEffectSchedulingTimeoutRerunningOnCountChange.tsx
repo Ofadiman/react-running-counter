@@ -1,29 +1,20 @@
 import { Fragment, useEffect, useState } from 'react'
 
 export const Counter = () => {
-  const [isRunning, setIsRunning] = useState(false)
   const [count, setCount] = useState(0)
+  const [isRunning, setIsRunning] = useState(false)
 
   useEffect(() => {
     if (isRunning) {
-      let timeoutId: null | number = null
-
-      const start = () => {
-        timeoutId = window.setTimeout(() => {
-          setCount((prev) => prev + 1)
-          start()
-        }, 1000)
-      }
-
-      start()
+      const timeoutId = window.setTimeout(() => {
+        setCount((prev) => prev + 1)
+      }, 1000)
 
       return () => {
-        if (timeoutId) {
-          window.clearTimeout(timeoutId)
-        }
+        window.clearTimeout(timeoutId)
       }
     }
-  }, [isRunning])
+  }, [isRunning, count])
 
   const handleStart = () => {
     setIsRunning(true)
