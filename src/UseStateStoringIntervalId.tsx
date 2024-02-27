@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 export const Counter = () => {
   const [intervalId, setIntervalId] = useState<number | null>(null)
@@ -12,24 +12,24 @@ export const Counter = () => {
     }
   }, [intervalId])
 
-  const handleStart = useCallback(() => {
-    if (intervalId) {
-      return
-    }
+  const handleStart = () => {
+    setIntervalId((prev) => {
+      if (prev) {
+        return prev
+      }
 
-    const newIntervalId = window.setInterval(() => {
-      setCount((prev) => prev + 1)
-    }, 1000)
+      return window.setInterval(() => {
+        setCount((prev) => prev + 1)
+      }, 1000)
+    })
+  }
 
-    setIntervalId(newIntervalId)
-  }, [intervalId])
-
-  const handleStop = useCallback(() => {
+  const handleStop = () => {
     if (intervalId) {
       window.clearInterval(intervalId)
       setIntervalId(null)
     }
-  }, [intervalId])
+  }
 
   const handleReset = () => {
     setCount(0)
