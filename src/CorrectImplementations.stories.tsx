@@ -11,6 +11,8 @@ import { Counter as RequestAnimationFrameCheckingElapsedTime } from './RequestAn
 import RequestAnimationFrameCheckingElapsedTimeSourceCode from './RequestAnimationFrameCheckingElapsedTime?raw'
 import { Counter as UseEffectPlayingMediaElement } from './UseEffectPlayingMediaElement'
 import UseEffectPlayingMediaElementSourceCode from './UseEffectPlayingMediaElement?raw'
+import { Counter as UseSyncExternalStoreSchedulingInterval } from './UseSyncExternalStoreSchedulingInterval'
+import UseSyncExternalStoreSchedulingIntervalSourceCode from './UseSyncExternalStoreSchedulingInterval?raw'
 
 export default {
   title: 'Correct implementations',
@@ -124,6 +126,23 @@ export const UseEffectPlayingMediaElementStory: StoryObj = {
       },
       source: {
         code: UseEffectPlayingMediaElementSourceCode,
+      },
+    },
+  },
+}
+
+export const UseSyncExternalStoreSchedulingIntervalStory: StoryObj = {
+  name: 'useSyncExternalStore scheduling interval',
+  render: () => {
+    return <UseSyncExternalStoreSchedulingInterval />
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `In this solution, all the logic for scheduling interval is abstracted away to \`CounterStore\` class (i.e. \`external store\`) and \`useSyncExternalStore\` hook is used to subscribe to the store and retrive the counter value. From a logical point of view, this solution is the same as the previous solution with the interval, but uses a different React API.`,
+      },
+      source: {
+        code: UseSyncExternalStoreSchedulingIntervalSourceCode,
       },
     },
   },
