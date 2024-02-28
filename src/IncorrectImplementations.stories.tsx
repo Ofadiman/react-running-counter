@@ -8,9 +8,6 @@ export default {
   title: 'Incorrect implementations',
   tags: ['autodocs'],
   parameters: {
-    controls: {
-      disable: true,
-    },
     docs: {
       canvas: {
         sourceState: 'shown',

@@ -20,9 +20,6 @@ export default {
   title: 'Correct implementations',
   tags: ['autodocs'],
   parameters: {
-    controls: {
-      disable: true,
-    },
     docs: {
       canvas: {
         sourceState: 'shown',

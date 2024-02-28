@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import type { Preview } from '@storybook/react'
 
-const preview: Preview = {
+export default {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -30,6 +30,4 @@ const preview: Preview = {
       )
     },
   ],
-}
-
-export default preview
+} satisfies Preview
