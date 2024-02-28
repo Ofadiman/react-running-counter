@@ -13,6 +13,8 @@ import { Counter as UseEffectPlayingMediaElement } from './UseEffectPlayingMedia
 import UseEffectPlayingMediaElementSourceCode from './UseEffectPlayingMediaElement?raw'
 import { Counter as UseSyncExternalStoreSchedulingInterval } from './UseSyncExternalStoreSchedulingInterval'
 import UseSyncExternalStoreSchedulingIntervalSourceCode from './UseSyncExternalStoreSchedulingInterval?raw'
+import { Counter as UseSyncExternalStoreSchedulingTimeoutRecursively } from './UseSyncExternalStoreSchedulingTimeoutRecursively'
+import UseSyncExternalStoreSchedulingTimeoutRecursivelySourceCode from './UseSyncExternalStoreSchedulingTimeoutRecursively?raw'
 
 export default {
   title: 'Correct implementations',
@@ -143,6 +145,23 @@ export const UseSyncExternalStoreSchedulingIntervalStory: StoryObj = {
       },
       source: {
         code: UseSyncExternalStoreSchedulingIntervalSourceCode,
+      },
+    },
+  },
+}
+
+export const UseSyncExternalStoreSchedulingTimeoutRecursivelyStory: StoryObj = {
+  name: 'useSyncExternalStore scheduling timeout recursively',
+  render: () => {
+    return <UseSyncExternalStoreSchedulingTimeoutRecursively />
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `In this solution, all the logic for scheduling interval is abstracted away to \`CounterStore\` class (i.e. \`external store\`) and \`useSyncExternalStore\` hook is used to subscribe to the store and retrive the counter value. From a logical point of view, this solution is the same as the previous solution with recursive timeout scheduling, but uses a different React API.`,
+      },
+      source: {
+        code: UseSyncExternalStoreSchedulingTimeoutRecursivelySourceCode,
       },
     },
   },
