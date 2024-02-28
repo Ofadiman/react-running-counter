@@ -9,6 +9,8 @@ import { Counter as UseEffectSchedulingTimeoutRecursively } from './UseEffectSch
 import UseEffectSchedulingTimeoutRecursivelySourceCode from './UseEffectSchedulingTimeoutRecursively?raw'
 import { Counter as RequestAnimationFrameCheckingElapsedTime } from './RequestAnimationFrameCheckingElapsedTime'
 import RequestAnimationFrameCheckingElapsedTimeSourceCode from './RequestAnimationFrameCheckingElapsedTime?raw'
+import { Counter as UseEffectPlayingMediaElement } from './UseEffectPlayingMediaElement'
+import UseEffectPlayingMediaElementSourceCode from './UseEffectPlayingMediaElement?raw'
 
 export default {
   title: 'Correct implementations',
@@ -105,6 +107,23 @@ export const RequestAnimationFrameStory: StoryObj = {
       },
       source: {
         code: RequestAnimationFrameCheckingElapsedTimeSourceCode,
+      },
+    },
+  },
+}
+
+export const UseEffectPlayingMediaElementStory: StoryObj = {
+  name: 'useEffect playing media element',
+  render: () => {
+    return <UseEffectPlayingMediaElement />
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `This solution uses \`HTMLVideoElement\` or \`HTMLAudioElement\` to measure time. Media element is created in a way it takes exactly one second. After calling the \`handleStart\` function, we check if the counter is already running and if not we start playing the media element. The \`handleStop\` function pauses the media element and resets its current position to the beginning. \`useEffect\` binds a function to the \`onended\` media element property responsible for incrementing the counter by 1 and replaying the media element recursively. The media element volume is set to 0 for convenience.`,
+      },
+      source: {
+        code: UseEffectPlayingMediaElementSourceCode,
       },
     },
   },
