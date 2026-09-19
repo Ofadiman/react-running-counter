@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint workflows
+        run: actionlint
+
       - name: Check formatting
         run: pnpm run prettier:check
 

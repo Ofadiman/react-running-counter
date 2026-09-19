@@ -10,3 +10,7 @@ pre-commit:
     - name: typescript
       glob: ["*.ts", "*.tsx", "*.mts", "tsconfig.json", "package.json"]
       run: pnpm run typescript:check
+
+    - name: actionlint
+      glob: ".github/workflows/*.{yaml,yml}"
+      run: actionlint {staged_files}
