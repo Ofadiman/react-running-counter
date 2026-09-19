@@ -1,0 +1,5 @@
+minimumReleaseAge: 4320
+
+allowBuilds:
+  '@swc/core': false
+  esbuild: false
