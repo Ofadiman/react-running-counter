@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Counter as UseRefStoringIntervalId } from "./UseRefStoringIntervalId";
 import UseRefStoringIntervalIdSourceCode from "./UseRefStoringIntervalId?raw";
 import { Counter as UseEffectSchedulingInterval } from "./UseEffectSchedulingInterval";

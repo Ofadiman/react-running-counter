@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react-vite";
 
 export default {
   parameters: {
