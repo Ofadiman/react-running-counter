@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import type { Preview } from "@storybook/react-vite";
 
 export default {
@@ -16,17 +16,23 @@ export default {
       const [isMounted, setIsMounted] = useState(true);
 
       return (
-        <Fragment>
-          <div>
-            <button className="button-20" onClick={() => setIsMounted(true)}>
+        <div className="preview">
+          <div className="preview-actions">
+            <button
+              className="preview-button"
+              onClick={() => setIsMounted(true)}
+            >
               Mount
             </button>
-            <button className="button-20" onClick={() => setIsMounted(false)}>
+            <button
+              className="preview-button"
+              onClick={() => setIsMounted(false)}
+            >
               Unmount
             </button>
           </div>
           {isMounted && <Story />}
-        </Fragment>
+        </div>
       );
     },
   ],

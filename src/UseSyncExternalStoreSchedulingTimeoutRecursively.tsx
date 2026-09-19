@@ -1,4 +1,4 @@
-import { Fragment, useRef, useSyncExternalStore } from "react";
+import { useRef, useSyncExternalStore } from "react";
 
 class CounterStore {
   private count: number = 0;
@@ -80,11 +80,19 @@ export const Counter = () => {
   };
 
   return (
-    <Fragment>
-      <p>count: {countSnapshot}</p>
-      <button onClick={handleStart}>start</button>
-      <button onClick={handleStop}>stop</button>
-      <button onClick={handleReset}>reset</button>
-    </Fragment>
+    <div className="counter">
+      <p className="counter-value">count: {countSnapshot}</p>
+      <div className="counter-actions">
+        <button className="counter-button" onClick={handleStart}>
+          start
+        </button>
+        <button className="counter-button" onClick={handleStop}>
+          stop
+        </button>
+        <button className="counter-button" onClick={handleReset}>
+          reset
+        </button>
+      </div>
+    </div>
   );
 };

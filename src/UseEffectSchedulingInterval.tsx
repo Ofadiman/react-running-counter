@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Counter = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -31,11 +31,19 @@ export const Counter = () => {
   };
 
   return (
-    <Fragment>
-      <p>count: {count}</p>
-      <button onClick={handleStart}>start</button>
-      <button onClick={handleStop}>stop</button>
-      <button onClick={handleReset}>reset</button>
-    </Fragment>
+    <div className="counter">
+      <p className="counter-value">count: {count}</p>
+      <div className="counter-actions">
+        <button className="counter-button" onClick={handleStart}>
+          start
+        </button>
+        <button className="counter-button" onClick={handleStop}>
+          stop
+        </button>
+        <button className="counter-button" onClick={handleReset}>
+          reset
+        </button>
+      </div>
+    </div>
   );
 };
