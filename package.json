@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "format": "prettier --write .",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
