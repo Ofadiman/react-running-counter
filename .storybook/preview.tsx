@@ -16,20 +16,10 @@ export default {
       const [isMounted, setIsMounted] = useState(true);
 
       return (
-        <div className="preview">
-          <div className="preview-actions">
-            <button
-              className="preview-button"
-              onClick={() => setIsMounted(true)}
-            >
-              Mount
-            </button>
-            <button
-              className="preview-button"
-              onClick={() => setIsMounted(false)}
-            >
-              Unmount
-            </button>
+        <div>
+          <div>
+            <button onClick={() => setIsMounted(true)}>Mount</button>
+            <button onClick={() => setIsMounted(false)}>Unmount</button>
           </div>
           {isMounted && <Story />}
         </div>

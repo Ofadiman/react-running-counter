@@ -30,11 +30,9 @@ export const Counter = () => {
   return (
     <div>
       <p>count: {count}</p>
-      <div>
-        <button onClick={handleStart}>start</button>
-        <button onClick={handleStop}>stop</button>
-        <button onClick={handleReset}>reset</button>
-      </div>
+      <button onClick={handleStart}>start</button>
+      <button onClick={handleStop}>stop</button>
+      <button onClick={handleReset}>reset</button>
     </div>
   );
 };

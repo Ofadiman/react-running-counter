@@ -80,19 +80,11 @@ export const Counter = () => {
   };
 
   return (
-    <div className="counter">
-      <p className="counter-value">count: {countSnapshot}</p>
-      <div className="counter-actions">
-        <button className="counter-button" onClick={handleStart}>
-          start
-        </button>
-        <button className="counter-button" onClick={handleStop}>
-          stop
-        </button>
-        <button className="counter-button" onClick={handleReset}>
-          reset
-        </button>
-      </div>
+    <div>
+      <p>count: {countSnapshot}</p>
+      <button onClick={handleStart}>start</button>
+      <button onClick={handleStop}>stop</button>
+      <button onClick={handleReset}>reset</button>
     </div>
   );
 };
