@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 
 export const Counter = () => {
-  const audioRef = useRef(new Audio("public/1-second-of-silence.mp3"));
+  const audioRef = useRef(new Audio("/1-second-of-silence.mp3"));
   const isRunningRef = useRef(false);
   const [count, setCount] = useState(0);
 
