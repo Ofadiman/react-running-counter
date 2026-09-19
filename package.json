@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "format": "prettier --write .",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "storybook:build": "storybook build",
+    "storybook:start": "storybook dev -p 6006",
+    "typescript:check": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json"
   },
   "dependencies": {
     "react": "^19.3.0",

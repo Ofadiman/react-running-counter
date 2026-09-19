@@ -9,4 +9,4 @@ pre-commit:
 
     - name: typescript
       glob: ["*.ts", "*.tsx", "*.mts", "tsconfig.json", "package.json"]
-      run: pnpm run typecheck
+      run: pnpm run typescript:check
