@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  skip: [merge, rebase]
+  jobs:
+    - name: prettier
+      file_types: ["not symlink"]
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
+
+    - name: typescript
+      glob: ["*.ts", "*.tsx", "*.mts", "tsconfig.json", "package.json"]
+      run: pnpm run typecheck
