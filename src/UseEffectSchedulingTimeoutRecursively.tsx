@@ -5,24 +5,22 @@ export const Counter = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    let timeoutId: number | undefined;
+
+    const start = () => {
+      timeoutId = window.setTimeout(() => {
+        setCount((prev) => prev + 1);
+        start();
+      }, 1000);
+    };
+
     if (isRunning) {
-      let timeoutId: null | number = null;
-
-      const start = () => {
-        timeoutId = window.setTimeout(() => {
-          setCount((prev) => prev + 1);
-          start();
-        }, 1000);
-      };
-
       start();
-
-      return () => {
-        if (timeoutId) {
-          window.clearTimeout(timeoutId);
-        }
-      };
     }
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
   }, [isRunning]);
 
   const handleStart = () => {

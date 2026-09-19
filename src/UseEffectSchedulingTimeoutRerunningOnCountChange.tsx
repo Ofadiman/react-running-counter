@@ -5,15 +5,17 @@ export const Counter = () => {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
+    let timeoutId: number | undefined;
+
     if (isRunning) {
-      const timeoutId = window.setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         setCount((prev) => prev + 1);
       }, 1000);
-
-      return () => {
-        window.clearTimeout(timeoutId);
-      };
     }
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
   }, [isRunning, count]);
 
   const handleStart = () => {

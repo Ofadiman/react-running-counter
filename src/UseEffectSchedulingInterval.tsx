@@ -5,15 +5,17 @@ export const Counter = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    let intervalId: number | undefined;
+
     if (isRunning) {
-      const intervalId = window.setInterval(() => {
+      intervalId = window.setInterval(() => {
         setCount((prev) => prev + 1);
       }, 1000);
-
-      return () => {
-        window.clearInterval(intervalId);
-      };
     }
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
   }, [isRunning]);
 
   const handleStart = () => {

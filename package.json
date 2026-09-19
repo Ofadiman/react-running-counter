@@ -8,7 +8,7 @@
     "prettier:fix": "prettier . --write",
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
-    "typescript:check": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json"
+    "typescript:check": "tsc"
   },
   "dependencies": {
     "react": "^19.3.0",
