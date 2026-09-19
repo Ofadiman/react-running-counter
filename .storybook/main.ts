@@ -5,7 +5,9 @@ export default {
   addons: ["@storybook/addon-links", "@storybook/addon-docs"],
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {
+      strictMode: true,
+    },
   },
   staticDirs: ["../public"],
 } satisfies StorybookConfig;
