@@ -1,32 +1,32 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from "react";
 
 export const Counter = () => {
-  const [count, setCount] = useState(0)
-  const [isRunning, setIsRunning] = useState(false)
+  const [count, setCount] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
     if (isRunning) {
       const timeoutId = window.setTimeout(() => {
-        setCount((prev) => prev + 1)
-      }, 1000)
+        setCount((prev) => prev + 1);
+      }, 1000);
 
       return () => {
-        window.clearTimeout(timeoutId)
-      }
+        window.clearTimeout(timeoutId);
+      };
     }
-  }, [isRunning, count])
+  }, [isRunning, count]);
 
   const handleStart = () => {
-    setIsRunning(true)
-  }
+    setIsRunning(true);
+  };
 
   const handleStop = () => {
-    setIsRunning(false)
-  }
+    setIsRunning(false);
+  };
 
   const handleReset = () => {
-    setCount(0)
-  }
+    setCount(0);
+  };
 
   return (
     <Fragment>
@@ -35,5 +35,5 @@ export const Counter = () => {
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
     </Fragment>
-  )
-}
+  );
+};

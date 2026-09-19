@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react'
-import type { Preview } from '@storybook/react'
+import React, { Fragment, useState } from "react";
+import type { Preview } from "@storybook/react";
 
 export default {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -13,7 +13,7 @@ export default {
   },
   decorators: [
     (Story) => {
-      const [isMounted, setIsMounted] = useState(true)
+      const [isMounted, setIsMounted] = useState(true);
 
       return (
         <Fragment>
@@ -27,7 +27,7 @@ export default {
           </div>
           {isMounted && <Story />}
         </Fragment>
-      )
+      );
     },
   ],
-} satisfies Preview
+} satisfies Preview;

@@ -1,37 +1,37 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from "react";
 
 export const Counter = () => {
-  const intervalIdRef = useRef<null | number>(null)
-  const [count, setCount] = useState(0)
+  const intervalIdRef = useRef<null | number>(null);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     return () => {
       if (intervalIdRef.current) {
-        window.clearInterval(intervalIdRef.current)
+        window.clearInterval(intervalIdRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const handleStart = () => {
     if (intervalIdRef.current !== null) {
-      return
+      return;
     }
 
     intervalIdRef.current = window.setInterval(() => {
-      setCount((prev) => prev + 1)
-    }, 1000)
-  }
+      setCount((prev) => prev + 1);
+    }, 1000);
+  };
 
   const handleStop = () => {
     if (intervalIdRef.current) {
-      window.clearInterval(intervalIdRef.current)
-      intervalIdRef.current = null
+      window.clearInterval(intervalIdRef.current);
+      intervalIdRef.current = null;
     }
-  }
+  };
 
   const handleReset = () => {
-    setCount(0)
-  }
+    setCount(0);
+  };
 
   return (
     <Fragment>
@@ -40,5 +40,5 @@ export const Counter = () => {
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
     </Fragment>
-  )
-}
+  );
+};

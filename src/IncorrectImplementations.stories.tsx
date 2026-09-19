@@ -1,25 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Counter as UseStateStoringIntervalId } from './UseStateStoringIntervalId'
-import UseStateStoringIntervalIdSourceCode from './UseStateStoringIntervalId?raw'
-import { Counter as UseEffectSchedulingTimeoutRerunningOnCountChange } from './UseEffectSchedulingTimeoutRerunningOnCountChange'
-import UseEffectSchedulingTimeoutRerunningOnCountChangeSourceCode from './UseEffectSchedulingTimeoutRerunningOnCountChange?raw'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Counter as UseStateStoringIntervalId } from "./UseStateStoringIntervalId";
+import UseStateStoringIntervalIdSourceCode from "./UseStateStoringIntervalId?raw";
+import { Counter as UseEffectSchedulingTimeoutRerunningOnCountChange } from "./UseEffectSchedulingTimeoutRerunningOnCountChange";
+import UseEffectSchedulingTimeoutRerunningOnCountChangeSourceCode from "./UseEffectSchedulingTimeoutRerunningOnCountChange?raw";
 
 export default {
-  title: 'Incorrect implementations',
-  tags: ['autodocs'],
+  title: "Incorrect implementations",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
-} satisfies Meta
+} satisfies Meta;
 
 export const UseStateStoringIntervalIdStory: StoryObj = {
-  name: 'useState storing interval id',
+  name: "useState storing interval id",
   render: () => {
-    return <UseStateStoringIntervalId />
+    return <UseStateStoringIntervalId />;
   },
   parameters: {
     docs: {
@@ -31,12 +31,12 @@ export const UseStateStoringIntervalIdStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const UseEffectSchedulingTimeoutRerunningOnCountChangeStory: StoryObj = {
-  name: 'useEffect scheduling timeout and re-running on count change',
+  name: "useEffect scheduling timeout and re-running on count change",
   render: () => {
-    return <UseEffectSchedulingTimeoutRerunningOnCountChange />
+    return <UseEffectSchedulingTimeoutRerunningOnCountChange />;
   },
   parameters: {
     docs: {
@@ -48,4 +48,4 @@ export const UseEffectSchedulingTimeoutRerunningOnCountChangeStory: StoryObj = {
       },
     },
   },
-}
+};

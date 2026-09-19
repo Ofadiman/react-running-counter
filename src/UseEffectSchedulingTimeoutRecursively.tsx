@@ -1,41 +1,41 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from "react";
 
 export const Counter = () => {
-  const [isRunning, setIsRunning] = useState(false)
-  const [count, setCount] = useState(0)
+  const [isRunning, setIsRunning] = useState(false);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (isRunning) {
-      let timeoutId: null | number = null
+      let timeoutId: null | number = null;
 
       const start = () => {
         timeoutId = window.setTimeout(() => {
-          setCount((prev) => prev + 1)
-          start()
-        }, 1000)
-      }
+          setCount((prev) => prev + 1);
+          start();
+        }, 1000);
+      };
 
-      start()
+      start();
 
       return () => {
         if (timeoutId) {
-          window.clearTimeout(timeoutId)
+          window.clearTimeout(timeoutId);
         }
-      }
+      };
     }
-  }, [isRunning])
+  }, [isRunning]);
 
   const handleStart = () => {
-    setIsRunning(true)
-  }
+    setIsRunning(true);
+  };
 
   const handleStop = () => {
-    setIsRunning(false)
-  }
+    setIsRunning(false);
+  };
 
   const handleReset = () => {
-    setCount(0)
-  }
+    setCount(0);
+  };
 
   return (
     <Fragment>
@@ -44,5 +44,5 @@ export const Counter = () => {
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
     </Fragment>
-  )
-}
+  );
+};

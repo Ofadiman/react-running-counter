@@ -1,47 +1,47 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from "react";
 
 export const Counter = () => {
-  const nowRef = useRef<number | null>(null)
-  const animationFrameIdRef = useRef<number | null>(null)
-  const [count, setCount] = useState(0)
+  const nowRef = useRef<number | null>(null);
+  const animationFrameIdRef = useRef<number | null>(null);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     return () => {
       if (animationFrameIdRef.current) {
-        window.cancelAnimationFrame(animationFrameIdRef.current)
+        window.cancelAnimationFrame(animationFrameIdRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const checkTime = () => {
-    const now = Date.now()
+    const now = Date.now();
     if (nowRef.current && nowRef.current + 1_000 < now) {
-      nowRef.current = now
-      setCount((prev) => prev + 1)
+      nowRef.current = now;
+      setCount((prev) => prev + 1);
     }
 
-    animationFrameIdRef.current = window.requestAnimationFrame(checkTime)
-  }
+    animationFrameIdRef.current = window.requestAnimationFrame(checkTime);
+  };
 
   const handleStart = () => {
     if (nowRef.current !== null) {
-      return
+      return;
     }
 
-    nowRef.current = Date.now()
-    animationFrameIdRef.current = window.requestAnimationFrame(checkTime)
-  }
+    nowRef.current = Date.now();
+    animationFrameIdRef.current = window.requestAnimationFrame(checkTime);
+  };
 
   const handleStop = () => {
     if (animationFrameIdRef.current) {
-      nowRef.current = null
-      window.cancelAnimationFrame(animationFrameIdRef.current)
+      nowRef.current = null;
+      window.cancelAnimationFrame(animationFrameIdRef.current);
     }
-  }
+  };
 
   const handleReset = () => {
-    setCount(0)
-  }
+    setCount(0);
+  };
 
   return (
     <Fragment>
@@ -50,5 +50,5 @@ export const Counter = () => {
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
     </Fragment>
-  )
-}
+  );
+};

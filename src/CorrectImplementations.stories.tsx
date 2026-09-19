@@ -1,37 +1,37 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Counter as UseRefStoringIntervalId } from './UseRefStoringIntervalId'
-import UseRefStoringIntervalIdSourceCode from './UseRefStoringIntervalId?raw'
-import { Counter as UseEffectSchedulingInterval } from './UseEffectSchedulingInterval'
-import UseEffectSchedulingIntervalSourceCode from './UseEffectSchedulingInterval?raw'
-import { Counter as HandleStartFunctionSchedulingTimeoutRecursively } from './HandleStartFunctionSchedulingTimeoutRecursively'
-import HandleStartFunctionSchedulingTimeoutRecursivelySourceCode from './HandleStartFunctionSchedulingTimeoutRecursively?raw'
-import { Counter as UseEffectSchedulingTimeoutRecursively } from './UseEffectSchedulingTimeoutRecursively'
-import UseEffectSchedulingTimeoutRecursivelySourceCode from './UseEffectSchedulingTimeoutRecursively?raw'
-import { Counter as RequestAnimationFrameCheckingElapsedTime } from './RequestAnimationFrameCheckingElapsedTime'
-import RequestAnimationFrameCheckingElapsedTimeSourceCode from './RequestAnimationFrameCheckingElapsedTime?raw'
-import { Counter as UseEffectPlayingMediaElement } from './UseEffectPlayingMediaElement'
-import UseEffectPlayingMediaElementSourceCode from './UseEffectPlayingMediaElement?raw'
-import { Counter as UseSyncExternalStoreSchedulingInterval } from './UseSyncExternalStoreSchedulingInterval'
-import UseSyncExternalStoreSchedulingIntervalSourceCode from './UseSyncExternalStoreSchedulingInterval?raw'
-import { Counter as UseSyncExternalStoreSchedulingTimeoutRecursively } from './UseSyncExternalStoreSchedulingTimeoutRecursively'
-import UseSyncExternalStoreSchedulingTimeoutRecursivelySourceCode from './UseSyncExternalStoreSchedulingTimeoutRecursively?raw'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Counter as UseRefStoringIntervalId } from "./UseRefStoringIntervalId";
+import UseRefStoringIntervalIdSourceCode from "./UseRefStoringIntervalId?raw";
+import { Counter as UseEffectSchedulingInterval } from "./UseEffectSchedulingInterval";
+import UseEffectSchedulingIntervalSourceCode from "./UseEffectSchedulingInterval?raw";
+import { Counter as HandleStartFunctionSchedulingTimeoutRecursively } from "./HandleStartFunctionSchedulingTimeoutRecursively";
+import HandleStartFunctionSchedulingTimeoutRecursivelySourceCode from "./HandleStartFunctionSchedulingTimeoutRecursively?raw";
+import { Counter as UseEffectSchedulingTimeoutRecursively } from "./UseEffectSchedulingTimeoutRecursively";
+import UseEffectSchedulingTimeoutRecursivelySourceCode from "./UseEffectSchedulingTimeoutRecursively?raw";
+import { Counter as RequestAnimationFrameCheckingElapsedTime } from "./RequestAnimationFrameCheckingElapsedTime";
+import RequestAnimationFrameCheckingElapsedTimeSourceCode from "./RequestAnimationFrameCheckingElapsedTime?raw";
+import { Counter as UseEffectPlayingMediaElement } from "./UseEffectPlayingMediaElement";
+import UseEffectPlayingMediaElementSourceCode from "./UseEffectPlayingMediaElement?raw";
+import { Counter as UseSyncExternalStoreSchedulingInterval } from "./UseSyncExternalStoreSchedulingInterval";
+import UseSyncExternalStoreSchedulingIntervalSourceCode from "./UseSyncExternalStoreSchedulingInterval?raw";
+import { Counter as UseSyncExternalStoreSchedulingTimeoutRecursively } from "./UseSyncExternalStoreSchedulingTimeoutRecursively";
+import UseSyncExternalStoreSchedulingTimeoutRecursivelySourceCode from "./UseSyncExternalStoreSchedulingTimeoutRecursively?raw";
 
 export default {
-  title: 'Correct implementations',
-  tags: ['autodocs'],
+  title: "Correct implementations",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       canvas: {
-        sourceState: 'shown',
+        sourceState: "shown",
       },
     },
   },
-} satisfies Meta
+} satisfies Meta;
 
 export const UseRefStoringIntervalIdStory: StoryObj = {
-  name: 'useRef storing interval id',
+  name: "useRef storing interval id",
   render: () => {
-    return <UseRefStoringIntervalId />
+    return <UseRefStoringIntervalId />;
   },
   parameters: {
     docs: {
@@ -43,12 +43,12 @@ export const UseRefStoringIntervalIdStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const UseEffectSchedulingIntervalStory: StoryObj = {
-  name: 'useEffect scheduling interval',
+  name: "useEffect scheduling interval",
   render: () => {
-    return <UseEffectSchedulingInterval />
+    return <UseEffectSchedulingInterval />;
   },
   parameters: {
     docs: {
@@ -60,12 +60,12 @@ export const UseEffectSchedulingIntervalStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const UseEffectSchedulingTimeoutRecursivelyStory: StoryObj = {
-  name: 'useEffect scheduling timeout recursively',
+  name: "useEffect scheduling timeout recursively",
   render: () => {
-    return <UseEffectSchedulingTimeoutRecursively />
+    return <UseEffectSchedulingTimeoutRecursively />;
   },
   parameters: {
     docs: {
@@ -77,12 +77,12 @@ export const UseEffectSchedulingTimeoutRecursivelyStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const HandleStartFunctionSchedulingTimeoutRecursivelyStory: StoryObj = {
-  name: 'handleStart function scheduling timeout recursively',
+  name: "handleStart function scheduling timeout recursively",
   render: () => {
-    return <HandleStartFunctionSchedulingTimeoutRecursively />
+    return <HandleStartFunctionSchedulingTimeoutRecursively />;
   },
   parameters: {
     docs: {
@@ -94,12 +94,12 @@ export const HandleStartFunctionSchedulingTimeoutRecursivelyStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const RequestAnimationFrameStory: StoryObj = {
-  name: 'requestAnimationFrame checking elapsed time',
+  name: "requestAnimationFrame checking elapsed time",
   render: () => {
-    return <RequestAnimationFrameCheckingElapsedTime />
+    return <RequestAnimationFrameCheckingElapsedTime />;
   },
   parameters: {
     docs: {
@@ -111,12 +111,12 @@ export const RequestAnimationFrameStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const UseEffectPlayingMediaElementStory: StoryObj = {
-  name: 'useEffect playing media element',
+  name: "useEffect playing media element",
   render: () => {
-    return <UseEffectPlayingMediaElement />
+    return <UseEffectPlayingMediaElement />;
   },
   parameters: {
     docs: {
@@ -128,12 +128,12 @@ export const UseEffectPlayingMediaElementStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const UseSyncExternalStoreSchedulingIntervalStory: StoryObj = {
-  name: 'useSyncExternalStore scheduling interval',
+  name: "useSyncExternalStore scheduling interval",
   render: () => {
-    return <UseSyncExternalStoreSchedulingInterval />
+    return <UseSyncExternalStoreSchedulingInterval />;
   },
   parameters: {
     docs: {
@@ -145,12 +145,12 @@ export const UseSyncExternalStoreSchedulingIntervalStory: StoryObj = {
       },
     },
   },
-}
+};
 
 export const UseSyncExternalStoreSchedulingTimeoutRecursivelyStory: StoryObj = {
-  name: 'useSyncExternalStore scheduling timeout recursively',
+  name: "useSyncExternalStore scheduling timeout recursively",
   render: () => {
-    return <UseSyncExternalStoreSchedulingTimeoutRecursively />
+    return <UseSyncExternalStoreSchedulingTimeoutRecursively />;
   },
   parameters: {
     docs: {
@@ -162,4 +162,4 @@ export const UseSyncExternalStoreSchedulingTimeoutRecursivelyStory: StoryObj = {
       },
     },
   },
-}
+};

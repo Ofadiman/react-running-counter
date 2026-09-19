@@ -20,14 +20,14 @@ Come up with as many implementations as you can using various `React` and `DOM` 
 #### Component template
 
 ```tsx
-import React from 'react'
+import React from "react";
 
 export const Counter = () => {
-  const handleStart = () => {}
+  const handleStart = () => {};
 
-  const handleStop = () => {}
+  const handleStop = () => {};
 
-  const handleReset = () => {}
+  const handleReset = () => {};
 
   return (
     <Fragment>
@@ -36,6 +36,6 @@ export const Counter = () => {
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
     </Fragment>
-  )
-}
+  );
+};
 ```

@@ -1,39 +1,39 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from "react";
 
 export const Counter = () => {
-  const audioRef = useRef(new Audio('public/1-second-of-silence.mp3'))
-  const isRunningRef = useRef(false)
-  const [count, setCount] = useState(0)
+  const audioRef = useRef(new Audio("public/1-second-of-silence.mp3"));
+  const isRunningRef = useRef(false);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    audioRef.current.volume = 0
+    audioRef.current.volume = 0;
 
     audioRef.current.onended = () => {
       if (isRunningRef.current === true) {
-        setCount((prev) => prev + 1)
-        audioRef.current.play()
+        setCount((prev) => prev + 1);
+        audioRef.current.play();
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const handleStart = () => {
     if (isRunningRef.current === true) {
-      return
+      return;
     }
 
-    isRunningRef.current = true
-    audioRef.current.play()
-  }
+    isRunningRef.current = true;
+    audioRef.current.play();
+  };
 
   const handleStop = () => {
-    audioRef.current.pause()
-    audioRef.current.currentTime = 0
-    isRunningRef.current = false
-  }
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+    isRunningRef.current = false;
+  };
 
   const handleReset = () => {
-    setCount(0)
-  }
+    setCount(0);
+  };
 
   return (
     <Fragment>
@@ -42,5 +42,5 @@ export const Counter = () => {
       <button onClick={handleStop}>stop</button>
       <button onClick={handleReset}>reset</button>
     </Fragment>
-  )
-}
+  );
+};

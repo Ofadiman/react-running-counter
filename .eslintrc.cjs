@@ -1,14 +1,14 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  ignorePatterns: ['dist', 'storybook-static', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'react-hooks'],
+  ignorePatterns: ["dist", "storybook-static", ".eslintrc.cjs"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["react-refresh", "react-hooks"],
 
   rules: {
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
   },
 
-  extends: ['plugin:storybook/recommended']
-}
+  extends: ["plugin:storybook/recommended"],
+};
