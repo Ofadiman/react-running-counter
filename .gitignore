@@ -25,3 +25,6 @@ dist-ssr
 
 # Build
 storybook-static
+
+# Coverage
+coverage

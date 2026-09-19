@@ -9,7 +9,7 @@
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
     "typescript:check": "tsc",
-    "vitest:run": "vitest run",
+    "vitest:run": "vitest run --coverage",
     "vitest:watch": "vitest watch"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react-swc": "^4.3.3",
     "@vitest/browser-playwright": "^5.0.1",
+    "@vitest/coverage-v8": "^5.0.1",
     "playwright": "^1.63.0",
     "prettier": "^3.9.7",
     "storybook": "^10.6.0",

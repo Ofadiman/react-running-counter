@@ -161,6 +161,15 @@ counters.forEach(({ name, Counter }) => {
       expect(screen.getByText(/^count:/).textContent).toBe("count: 1");
     });
 
+    it("ignores stop before the counter starts", () => {
+      render(<Counter />, { wrapper: StrictMode });
+
+      fireEvent.click(screen.getByRole("button", { name: "stop" }));
+
+      expect(screen.getByText(/^count:/).textContent).toBe("count: 0");
+      expect(vi.getTimerCount()).toBe(0);
+    });
+
     it("resets the count to zero and keeps counting while the counter runs", () => {
       render(<Counter />, { wrapper: StrictMode });
       fireEvent.click(screen.getByRole("button", { name: "start" }));

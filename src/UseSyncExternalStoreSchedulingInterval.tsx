@@ -51,6 +51,7 @@ class CounterStore {
   }
 
   emit() {
+    /* v8 ignore else -- useSyncExternalStore subscribes before any click and unsubscribes only at unmount, where the interval is cleared, so emit never runs without a listener */
     if (this.listener) {
       this.listener();
     }

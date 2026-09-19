@@ -11,5 +11,17 @@ export default defineConfig({
       provider: playwright(),
       instances: [{ browser: "chromium" }],
     },
+    coverage: {
+      provider: "v8",
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: ["src/**/*.stories.tsx"],
+      reporter: ["text", "html"],
+      thresholds: {
+        branches: 100,
+        functions: 100,
+        lines: 100,
+        statements: 100,
+      },
+    },
   },
 });
