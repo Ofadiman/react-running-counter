@@ -9,5 +9,4 @@ export default {
       strictMode: true,
     },
   },
-  staticDirs: ["../public"],
 } satisfies StorybookConfig;

@@ -7,10 +7,6 @@ import { Counter as HandleStartFunctionSchedulingTimeoutRecursively } from "./Ha
 import HandleStartFunctionSchedulingTimeoutRecursivelySourceCode from "./HandleStartFunctionSchedulingTimeoutRecursively?raw";
 import { Counter as UseEffectSchedulingTimeoutRecursively } from "./UseEffectSchedulingTimeoutRecursively";
 import UseEffectSchedulingTimeoutRecursivelySourceCode from "./UseEffectSchedulingTimeoutRecursively?raw";
-import { Counter as RequestAnimationFrameCheckingElapsedTime } from "./RequestAnimationFrameCheckingElapsedTime";
-import RequestAnimationFrameCheckingElapsedTimeSourceCode from "./RequestAnimationFrameCheckingElapsedTime?raw";
-import { Counter as UseEffectPlayingMediaElement } from "./UseEffectPlayingMediaElement";
-import UseEffectPlayingMediaElementSourceCode from "./UseEffectPlayingMediaElement?raw";
 import { Counter as UseSyncExternalStoreSchedulingInterval } from "./UseSyncExternalStoreSchedulingInterval";
 import UseSyncExternalStoreSchedulingIntervalSourceCode from "./UseSyncExternalStoreSchedulingInterval?raw";
 import { Counter as UseSyncExternalStoreSchedulingTimeoutRecursively } from "./UseSyncExternalStoreSchedulingTimeoutRecursively";
@@ -91,40 +87,6 @@ export const HandleStartFunctionSchedulingTimeoutRecursivelyStory: StoryObj = {
       },
       source: {
         code: HandleStartFunctionSchedulingTimeoutRecursivelySourceCode,
-      },
-    },
-  },
-};
-
-export const RequestAnimationFrameStory: StoryObj = {
-  name: "requestAnimationFrame checking elapsed time",
-  render: () => {
-    return <RequestAnimationFrameCheckingElapsedTime />;
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: `In this solution, \`window.requestAnimationFrame\` API is used to invoke a function responsible for incrementing counter approximately every 16 ms. The \`handleStart\` function sets the timestamp when checks if 1 second elapsed start and calls \`checkTime\` using \`window.requestAnimationFrame\` API. The \`checkTime\` function then checks if 1 second elapsed, and if so, updates the timestamp and counter state, and calls itself recursively using \`window.requestAnimationFrame\` API. \`handleStop\` function cancels animation frame and resets the timestamp when checks has started. \`useEffect\` is used to cancel animation frame after component unmounts, thus stopping the checks.`,
-      },
-      source: {
-        code: RequestAnimationFrameCheckingElapsedTimeSourceCode,
-      },
-    },
-  },
-};
-
-export const UseEffectPlayingMediaElementStory: StoryObj = {
-  name: "useEffect playing media element",
-  render: () => {
-    return <UseEffectPlayingMediaElement />;
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: `This solution uses \`HTMLVideoElement\` or \`HTMLAudioElement\` to measure time. Media element is created in a way it takes exactly one second. After calling the \`handleStart\` function, we check if the counter is already running and if not we start playing the media element. The \`handleStop\` function pauses the media element and resets its current position to the beginning. \`useEffect\` binds a function to the \`onended\` media element property responsible for incrementing the counter by 1 and replaying the media element recursively. The media element volume is set to 0 for convenience.`,
-      },
-      source: {
-        code: UseEffectPlayingMediaElementSourceCode,
       },
     },
   },
