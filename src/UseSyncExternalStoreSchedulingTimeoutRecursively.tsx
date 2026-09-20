@@ -1,8 +1,8 @@
-import { useRef, useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 class CounterStore {
   private count: number = 0;
-  private listener: Function | null = null;
+  private listener: (() => void) | null = null;
   private timeoutId: number | null = null;
 
   constructor() {
@@ -39,7 +39,7 @@ class CounterStore {
     }
   }
 
-  subscribe(listener: Function) {
+  subscribe(listener: () => void) {
     this.listener = listener;
 
     return () => {
@@ -61,22 +61,22 @@ class CounterStore {
 }
 
 export const Counter = () => {
-  const counterStoreRef = useRef(new CounterStore());
+  const [counterStore] = useState(() => new CounterStore());
   const countSnapshot = useSyncExternalStore(
-    counterStoreRef.current.subscribe,
-    counterStoreRef.current.getSnapshot,
+    counterStore.subscribe,
+    counterStore.getSnapshot,
   );
 
   const handleStart = () => {
-    counterStoreRef.current.start();
+    counterStore.start();
   };
 
   const handleStop = () => {
-    counterStoreRef.current.stop();
+    counterStore.stop();
   };
 
   const handleReset = () => {
-    counterStoreRef.current.reset();
+    counterStore.reset();
   };
 
   return (
