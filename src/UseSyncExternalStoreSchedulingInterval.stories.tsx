@@ -8,9 +8,7 @@ export default {
   tags: ["autodocs"],
   parameters: {
     docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+      canvas: { sourceState: "shown" },
       description: {
         component: `In this solution, all the logic for scheduling interval is abstracted away to \`CounterStore\` class (i.e. \`external store\`) and \`useSyncExternalStore\` hook is used to subscribe to the store and retrive the counter value. From a logical point of view, this solution is the same as the solution with the interval scheduled by \`useEffect\`, but uses a different React API.`,
       },
@@ -20,11 +18,5 @@ export default {
 
 export const CounterStory: StoryObj<typeof Counter> = {
   name: "Counter",
-  parameters: {
-    docs: {
-      source: {
-        code: sourceCode,
-      },
-    },
-  },
+  parameters: { docs: { source: { code: sourceCode } } },
 };

@@ -8,9 +8,7 @@ export default {
   tags: ["autodocs"],
   parameters: {
     docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+      canvas: { sourceState: "shown" },
       description: {
         component: `This solution relies on the fact that the function \`handleStart\` is called recursively running a timeout on each execution. The \`handleStop\` function clears the timeout and sets the references to its id to \`null\` so that it is possible to schedule a new timeout using \`handleStart\` later. \`useEffect\` is responsible for clearing timeout after the component unmounts.`,
       },
@@ -20,11 +18,5 @@ export default {
 
 export const CounterStory: StoryObj<typeof Counter> = {
   name: "Counter",
-  parameters: {
-    docs: {
-      source: {
-        code: sourceCode,
-      },
-    },
-  },
+  parameters: { docs: { source: { code: sourceCode } } },
 };

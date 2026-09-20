@@ -18,17 +18,8 @@ export default defineConfig([
       pluginReact.configs.flat.recommended,
       pluginReact.configs.flat["jsx-runtime"],
     ],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
-    },
-    settings: {
-      react: {
-        version: "19.3",
-      },
-    },
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    settings: { react: { version: "19.3" } },
   },
   {
     files: ["**/*.json"],

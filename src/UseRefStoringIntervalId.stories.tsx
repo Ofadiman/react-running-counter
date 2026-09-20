@@ -8,9 +8,7 @@ export default {
   tags: ["autodocs"],
   parameters: {
     docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+      canvas: { sourceState: "shown" },
       description: {
         component: `In this solution, \`handleStart\` function checks if the interval is already scheduled and if not, it schedules a new interval. \`handleStop\` function clears the interval and sets the references to its id to \`null\` so that it is possible to schedule a new interval using \`handleStart\` later. \`useEffect\` is responsible for clearing interval after the component unmounts.`,
       },
@@ -20,11 +18,5 @@ export default {
 
 export const CounterStory: StoryObj<typeof Counter> = {
   name: "Counter",
-  parameters: {
-    docs: {
-      source: {
-        code: sourceCode,
-      },
-    },
-  },
+  parameters: { docs: { source: { code: sourceCode } } },
 };

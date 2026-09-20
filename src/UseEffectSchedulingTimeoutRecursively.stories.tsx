@@ -8,9 +8,7 @@ export default {
   tags: ["autodocs"],
   parameters: {
     docs: {
-      canvas: {
-        sourceState: "shown",
-      },
+      canvas: { sourceState: "shown" },
       description: {
         component: `In this solution, \`handleStart\` and \`handleStop\` functions toggle between start/stop state causing \`useEffect\` to run. Function passed to \`useEffect\` schedules timeout recursively if the state is set to running and returns a cleanup function which will clear the timeout after the component unmounts or changes state to not running.`,
       },
@@ -20,11 +18,5 @@ export default {
 
 export const CounterStory: StoryObj<typeof Counter> = {
   name: "Counter",
-  parameters: {
-    docs: {
-      source: {
-        code: sourceCode,
-      },
-    },
-  },
+  parameters: { docs: { source: { code: sourceCode } } },
 };

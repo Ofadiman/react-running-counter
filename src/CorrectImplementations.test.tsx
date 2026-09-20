@@ -15,10 +15,7 @@ import { Counter as UseSyncExternalStoreSchedulingInterval } from "./UseSyncExte
 import { Counter as UseSyncExternalStoreSchedulingTimeoutRecursively } from "./UseSyncExternalStoreSchedulingTimeoutRecursively";
 
 const counters = [
-  {
-    name: "useRef storing interval id",
-    Counter: UseRefStoringIntervalId,
-  },
+  { name: "useRef storing interval id", Counter: UseRefStoringIntervalId },
   {
     name: "useEffect scheduling interval",
     Counter: UseEffectSchedulingInterval,
