@@ -32,6 +32,31 @@ jobs:
       - name: Lint workflows
         run: actionlint
 
+  eslint:
+    name: Lint with eslint
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Install tools
+        uses: jdx/mise-action@v4.3.0
+        with:
+          version: 2026.9.2
+
+      - name: Cache pnpm store
+        uses: actions/cache@v6.1.0
+        with:
+          path: ${{ env.PNPM_CONFIG_STORE_DIR }}
+          key: pnpm-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: pnpm-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm run eslint:check
+
   prettier:
     name: Check formatting with prettier
     runs-on: ubuntu-24.04
@@ -150,6 +175,7 @@ jobs:
     name: Deploy storybook to github pages
     needs:
       - actionlint
+      - eslint
       - prettier
       - typescript
       - vitest

@@ -7,6 +7,10 @@ pre-commit:
       run: pnpm exec prettier --write --ignore-unknown {staged_files}
       stage_fixed: true
 
+    - name: eslint
+      glob: "*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,json,jsonc,json5,md}"
+      run: pnpm exec eslint --no-warn-ignored {staged_files}
+
     - name: typescript
       glob: ["*.ts", "*.tsx", "*.mts", "tsconfig.json", "package.json"]
       run: pnpm run typescript:check
