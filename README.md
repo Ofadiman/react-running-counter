@@ -37,19 +37,3 @@ export const Counter = () => {
   );
 };
 ```
-
-## Requirements
-
-- [mise](https://mise.jdx.dev) installs the tools that this repository pins in `mise.toml`: Node, pnpm, lefthook, actionlint, and shellcheck.
-
-Run `mise install` once in the repository root. The `mise` hooks then install the git hooks that `lefthook.yaml` defines.
-
-## Getting started
-
-```shell
-mise install
-pnpm install
-pnpm run storybook:start
-```
-
-Storybook serves the documentation on port 6006.
